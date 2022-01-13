@@ -1,5 +1,5 @@
 # Distribution files
-dist
+# dist
 
 # OSX
 #
@@ -10,7 +10,6 @@ dist
 node_modules/
 npm-debug.log
 yarn-error.log
-
 
 # Xcode
 #
@@ -34,7 +33,6 @@ DerivedData
 
 # CocoaPods
 /ios/Pods/
-
 
 # Android/IntelliJ
 #

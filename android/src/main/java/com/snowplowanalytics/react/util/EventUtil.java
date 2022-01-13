@@ -51,6 +51,9 @@ public class EventUtil {
         if (argmap.hasKey("value") && !argmap.isNull("value")) {
             eventBuilder.value(argmap.getDouble("value"));
         }
+        if (argmap.hasKey("pageUrl")) {
+            eventBuilder.pageUrl(argmap.getString("pageUrl"));
+        }
 
         return eventBuilder.build();
     }
