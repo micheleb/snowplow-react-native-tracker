@@ -14,27 +14,41 @@
 /**
  * HttpMethod type
  */
-export type HttpMethod = 'post' | 'get';
+export type HttpMethod = "post" | "get";
 
 /**
  * DevicePlatform type
  */
-export type DevicePlatform = 'web' | 'mob' | 'pc' | 'srv' | 'app' | 'tv' | 'cnsl' | 'iot';
+export type DevicePlatform =
+  | "web"
+  | "mob"
+  | "pc"
+  | "srv"
+  | "app"
+  | "tv"
+  | "cnsl"
+  | "iot";
 
 /**
  * LogLevel type
  */
-export type LogLevel = 'off' | 'error' | 'debug' | 'verbose';
+export type LogLevel = "off" | "error" | "debug" | "verbose";
 
 /**
  * BasisForProsessing
  */
-export type Basis = 'consent' | 'contract' | 'legal_obligation' | 'legitimate_interests' | 'public_task' | 'vital_interests';
+export type Basis =
+  | "consent"
+  | "contract"
+  | "legal_obligation"
+  | "legitimate_interests"
+  | "public_task"
+  | "vital_interests";
 
 /**
  * BufferOption
  */
-export type BufferOption = 'single' | 'default' | 'large';
+export type BufferOption = "single" | "default" | "large";
 
 /**
  * ScreenSize
@@ -76,7 +90,6 @@ export interface NetworkConfiguration {
    */
   method?: HttpMethod;
 }
-
 
 /**
  * TrackerConfiguration
@@ -152,7 +165,6 @@ export interface TrackerConfiguration {
    */
   diagnosticAutotracking?: boolean;
 }
-
 
 /**
  * SessionConfiguration
@@ -281,11 +293,11 @@ export interface GlobalContext {
   /**
    * tag
    */
-  tag: string,
+  tag: string;
   /**
    * contexts
    */
-  globalContexts: SelfDescribing[]
+  globalContexts: SelfDescribing[];
 }
 
 /**
@@ -297,20 +309,21 @@ export type GCConfiguration = GlobalContext[];
  * The TrackerControllerConfiguration
  */
 export interface TrackerControllerConfiguration {
-  trackerConfig?: TrackerConfiguration,
-  sessionConfig?: SessionConfiguration,
-  emitterConfig?: EmitterConfiguration,
-  subjectConfig?: SubjectConfiguration,
-  gdprConfig?: GdprConfiguration,
-  gcConfig?: GCConfiguration
+  trackerConfig?: TrackerConfiguration;
+  sessionConfig?: SessionConfiguration;
+  emitterConfig?: EmitterConfiguration;
+  subjectConfig?: SubjectConfiguration;
+  gdprConfig?: GdprConfiguration;
+  gcConfig?: GCConfiguration;
 }
 
 /**
  * The TrackerConfiguration
  */
-export interface InitTrackerConfiguration extends TrackerControllerConfiguration {
-  namespace: string,
-  networkConfig: NetworkConfiguration
+export interface InitTrackerConfiguration
+  extends TrackerControllerConfiguration {
+  namespace: string;
+  networkConfig: NetworkConfiguration;
 }
 
 /**
@@ -334,7 +347,7 @@ export type ScreenViewProps = {
    * The name of the previous screen that was viewed
    */
   previousName?: string;
-   /**
+  /**
    * The id(UUID) of the previous screen that was viewed
    */
   previousId?: string;
@@ -372,6 +385,10 @@ export type StructuredProps = {
    * The value associated with the user action
    */
   value?: number;
+  /**
+   * The URL of the current page (JW-specific)
+   */
+  pageUrl?: string;
 };
 
 /**
