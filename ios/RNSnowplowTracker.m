@@ -180,8 +180,12 @@ RCT_EXPORT_METHOD(trackStructuredEvent:
             event.property = property;
         }
         NSNumber *value = [argmap sp_numberForKey:@"value" defaultValue:nil];
-        if (label) {
+        if (value) {
             event.value = value;
+        }
+        NSString *pageUrl = [argmap sp_stringForKey:@"pageUrl" defaultValue:nil];
+        if (pageUrl) {
+            event.pageUrl = pageUrl;
         }
 
         [event contexts:[RNUtilities mkSDJArray:contexts]];
