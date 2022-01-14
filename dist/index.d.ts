@@ -1,23 +1,23 @@
 /**
  * HttpMethod type
  */
-declare type HttpMethod = 'post' | 'get';
+declare type HttpMethod = "post" | "get";
 /**
  * DevicePlatform type
  */
-declare type DevicePlatform = 'web' | 'mob' | 'pc' | 'srv' | 'app' | 'tv' | 'cnsl' | 'iot';
+declare type DevicePlatform = "web" | "mob" | "pc" | "srv" | "app" | "tv" | "cnsl" | "iot";
 /**
  * LogLevel type
  */
-declare type LogLevel = 'off' | 'error' | 'debug' | 'verbose';
+declare type LogLevel = "off" | "error" | "debug" | "verbose";
 /**
  * BasisForProsessing
  */
-declare type Basis = 'consent' | 'contract' | 'legal_obligation' | 'legitimate_interests' | 'public_task' | 'vital_interests';
+declare type Basis = "consent" | "contract" | "legal_obligation" | "legitimate_interests" | "public_task" | "vital_interests";
 /**
  * BufferOption
  */
-declare type BufferOption = 'single' | 'default' | 'large';
+declare type BufferOption = "single" | "default" | "large";
 /**
  * ScreenSize
  */
@@ -290,8 +290,8 @@ declare type ScreenViewProps = {
      */
     previousName?: string;
     /**
-    * The id(UUID) of the previous screen that was viewed
-    */
+     * The id(UUID) of the previous screen that was viewed
+     */
     previousId?: string;
     /**
      * The type of the previous screen that was viewed
@@ -326,6 +326,10 @@ declare type StructuredProps = {
      * The value associated with the user action
      */
     value?: number;
+    /**
+     * The URL of the current page (JW-specific)
+     */
+    pageUrl?: string;
 };
 /**
  * PageView event properties
