@@ -624,7 +624,7 @@ function trackSelfDescribingEvent$1(namespace, argmap, contexts = []) {
         .then(() => RNSnowplowTracker.trackSelfDescribingEvent({
         tracker: namespace,
         eventData: argmap,
-        contexts: contexts
+        contexts: contexts,
     }))
         .catch((error) => {
         throw new Error(`${logMessages.trackSelfDesc} ${error.message}`);
@@ -644,7 +644,7 @@ function trackScreenViewEvent$1(namespace, argmap, contexts = []) {
         .then(() => RNSnowplowTracker.trackScreenViewEvent({
         tracker: namespace,
         eventData: argmap,
-        contexts: contexts
+        contexts: contexts,
     }))
         .catch((error) => {
         throw new Error(`${logMessages.trackScreenView} ${error.message}`);
@@ -664,10 +664,10 @@ function trackStructuredEvent$1(namespace, argmap, contexts = []) {
         .then(() => RNSnowplowTracker.trackStructuredEvent({
         tracker: namespace,
         eventData: argmap,
-        contexts: contexts
+        contexts: contexts,
     }))
         .catch((error) => {
-        throw new Error(`${logMessages.trackStructured} ${error.message}`);
+        throw new Error(`${logMessages.trackStructured} ${error.message} data: ${JSON.stringify(argmap)}`);
     });
 }
 /**
@@ -684,7 +684,7 @@ function trackPageViewEvent$1(namespace, argmap, contexts = []) {
         .then(() => RNSnowplowTracker.trackPageViewEvent({
         tracker: namespace,
         eventData: argmap,
-        contexts: contexts
+        contexts: contexts,
     }))
         .catch((error) => {
         throw new Error(`${logMessages.trackPageView} ${error.message}`);
@@ -704,7 +704,7 @@ function trackTimingEvent$1(namespace, argmap, contexts = []) {
         .then(() => RNSnowplowTracker.trackTimingEvent({
         tracker: namespace,
         eventData: argmap,
-        contexts: contexts
+        contexts: contexts,
     }))
         .catch((error) => {
         throw new Error(`${logMessages.trackTiming} ${error.message}`);
@@ -724,7 +724,7 @@ function trackConsentGrantedEvent$1(namespace, argmap, contexts = []) {
         .then(() => RNSnowplowTracker.trackConsentGrantedEvent({
         tracker: namespace,
         eventData: argmap,
-        contexts: contexts
+        contexts: contexts,
     }))
         .catch((error) => {
         throw new Error(`${logMessages.trackConsentGranted} ${error.message}`);
@@ -744,7 +744,7 @@ function trackConsentWithdrawnEvent$1(namespace, argmap, contexts = []) {
         .then(() => RNSnowplowTracker.trackConsentWithdrawnEvent({
         tracker: namespace,
         eventData: argmap,
-        contexts: contexts
+        contexts: contexts,
     }))
         .catch((error) => {
         throw new Error(`${logMessages.trackConsentWithdrawn} ${error.message}`);
@@ -764,7 +764,7 @@ function trackEcommerceTransactionEvent$1(namespace, argmap, contexts = []) {
         .then(() => RNSnowplowTracker.trackEcommerceTransactionEvent({
         tracker: namespace,
         eventData: argmap,
-        contexts: contexts
+        contexts: contexts,
     }))
         .catch((error) => {
         throw new Error(`${logMessages.trackEcommerceTransaction} ${error.message}`);

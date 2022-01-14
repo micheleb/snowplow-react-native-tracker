@@ -11,10 +11,10 @@
  * See the Apache License Version 2.0 for the specific language governing permissions and limitations there under.
  */
 
-'use strict';
+"use strict";
 
-import { RNSnowplowTracker } from './native';
-import { logMessages } from './constants';
+import { RNSnowplowTracker } from "./native";
+import { logMessages } from "./constants";
 import {
   validateContexts,
   validateSelfDesc,
@@ -25,7 +25,7 @@ import {
   validateConsentGranted,
   validateConsentWithdrawn,
   validateEcommerceTransaction,
-} from './events';
+} from "./events";
 import type {
   SelfDescribing,
   EventContext,
@@ -36,7 +36,7 @@ import type {
   ConsentGrantedProps,
   ConsentWithdrawnProps,
   EcommerceTransactionProps,
-} from './types';
+} from "./types";
 
 /**
  * Tracks a self-describing event
@@ -53,12 +53,13 @@ function trackSelfDescribingEvent(
 ): Promise<void> {
   return <Promise<void>>validateSelfDesc(argmap)
     .then(() => validateContexts(contexts))
-    .then(() =>
-      <Promise<void>>RNSnowplowTracker.trackSelfDescribingEvent({
-        tracker: namespace,
-        eventData: argmap,
-        contexts: contexts
-      }))
+    .then(
+      () => <Promise<void>>RNSnowplowTracker.trackSelfDescribingEvent({
+          tracker: namespace,
+          eventData: argmap,
+          contexts: contexts,
+        })
+    )
     .catch((error) => {
       throw new Error(`${logMessages.trackSelfDesc} ${error.message}`);
     });
@@ -79,11 +80,13 @@ function trackScreenViewEvent(
 ): Promise<void> {
   return <Promise<void>>validateScreenView(argmap)
     .then(() => validateContexts(contexts))
-    .then(() =>
-      <Promise<void>>RNSnowplowTracker.trackScreenViewEvent({
-        tracker: namespace,
-        eventData: argmap,
-        contexts: contexts}))
+    .then(
+      () => <Promise<void>>RNSnowplowTracker.trackScreenViewEvent({
+          tracker: namespace,
+          eventData: argmap,
+          contexts: contexts,
+        })
+    )
     .catch((error) => {
       throw new Error(`${logMessages.trackScreenView} ${error.message}`);
     });
@@ -104,13 +107,19 @@ function trackStructuredEvent(
 ): Promise<void> {
   return <Promise<void>>validateStructured(argmap)
     .then(() => validateContexts(contexts))
-    .then(() =>
-      <Promise<void>>RNSnowplowTracker.trackStructuredEvent({
-        tracker: namespace,
-        eventData: argmap,
-        contexts: contexts}))
+    .then(
+      () => <Promise<void>>RNSnowplowTracker.trackStructuredEvent({
+          tracker: namespace,
+          eventData: argmap,
+          contexts: contexts,
+        })
+    )
     .catch((error) => {
-      throw new Error(`${logMessages.trackStructured} ${error.message}`);
+      throw new Error(
+        `${logMessages.trackStructured} ${error.message} data: ${JSON.stringify(
+          argmap
+        )}`
+      );
     });
 }
 
@@ -129,11 +138,13 @@ function trackPageViewEvent(
 ): Promise<void> {
   return <Promise<void>>validatePageView(argmap)
     .then(() => validateContexts(contexts))
-    .then(() =>
-      <Promise<void>>RNSnowplowTracker.trackPageViewEvent({
-        tracker: namespace,
-        eventData: argmap,
-        contexts: contexts}))
+    .then(
+      () => <Promise<void>>RNSnowplowTracker.trackPageViewEvent({
+          tracker: namespace,
+          eventData: argmap,
+          contexts: contexts,
+        })
+    )
     .catch((error) => {
       throw new Error(`${logMessages.trackPageView} ${error.message}`);
     });
@@ -154,11 +165,13 @@ function trackTimingEvent(
 ): Promise<void> {
   return <Promise<void>>validateTiming(argmap)
     .then(() => validateContexts(contexts))
-    .then(() =>
-      <Promise<void>>RNSnowplowTracker.trackTimingEvent({
-        tracker: namespace,
-        eventData: argmap,
-        contexts: contexts}))
+    .then(
+      () => <Promise<void>>RNSnowplowTracker.trackTimingEvent({
+          tracker: namespace,
+          eventData: argmap,
+          contexts: contexts,
+        })
+    )
     .catch((error) => {
       throw new Error(`${logMessages.trackTiming} ${error.message}`);
     });
@@ -179,11 +192,13 @@ function trackConsentGrantedEvent(
 ): Promise<void> {
   return <Promise<void>>validateConsentGranted(argmap)
     .then(() => validateContexts(contexts))
-    .then(() =>
-      <Promise<void>>RNSnowplowTracker.trackConsentGrantedEvent({
-        tracker: namespace,
-        eventData: argmap,
-        contexts: contexts}))
+    .then(
+      () => <Promise<void>>RNSnowplowTracker.trackConsentGrantedEvent({
+          tracker: namespace,
+          eventData: argmap,
+          contexts: contexts,
+        })
+    )
     .catch((error) => {
       throw new Error(`${logMessages.trackConsentGranted} ${error.message}`);
     });
@@ -204,11 +219,13 @@ function trackConsentWithdrawnEvent(
 ): Promise<void> {
   return <Promise<void>>validateConsentWithdrawn(argmap)
     .then(() => validateContexts(contexts))
-    .then(() =>
-      <Promise<void>>RNSnowplowTracker.trackConsentWithdrawnEvent({
-        tracker: namespace,
-        eventData: argmap,
-        contexts: contexts}))
+    .then(
+      () => <Promise<void>>RNSnowplowTracker.trackConsentWithdrawnEvent({
+          tracker: namespace,
+          eventData: argmap,
+          contexts: contexts,
+        })
+    )
     .catch((error) => {
       throw new Error(`${logMessages.trackConsentWithdrawn} ${error.message}`);
     });
@@ -229,13 +246,17 @@ function trackEcommerceTransactionEvent(
 ): Promise<void> {
   return <Promise<void>>validateEcommerceTransaction(argmap)
     .then(() => validateContexts(contexts))
-    .then(() =>
-      <Promise<void>>RNSnowplowTracker.trackEcommerceTransactionEvent({
-        tracker: namespace,
-        eventData: argmap,
-        contexts: contexts}))
+    .then(
+      () => <Promise<void>>RNSnowplowTracker.trackEcommerceTransactionEvent({
+          tracker: namespace,
+          eventData: argmap,
+          contexts: contexts,
+        })
+    )
     .catch((error) => {
-      throw new Error(`${logMessages.trackEcommerceTransaction} ${error.message}`);
+      throw new Error(
+        `${logMessages.trackEcommerceTransaction} ${error.message}`
+      );
     });
 }
 
