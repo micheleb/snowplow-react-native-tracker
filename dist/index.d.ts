@@ -330,6 +330,10 @@ declare type StructuredProps = {
      * The URL of the current page (JW-specific)
      */
     pageUrl?: string;
+    /**
+     * The URL of the page from which we're coming (JW-specific)
+     */
+    referrer?: string;
 };
 /**
  * PageView event properties
