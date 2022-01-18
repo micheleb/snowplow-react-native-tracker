@@ -54,6 +54,9 @@ public class EventUtil {
         if (argmap.hasKey("pageUrl")) {
             eventBuilder.pageUrl(argmap.getString("pageUrl"));
         }
+        if (argmap.hasKey("referrer")) {
+            eventBuilder.referrer(argmap.getString("referrer"));
+        }
 
         return eventBuilder.build();
     }
