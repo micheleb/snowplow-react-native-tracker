@@ -187,6 +187,10 @@ RCT_EXPORT_METHOD(trackStructuredEvent:
         if (pageUrl) {
             event.pageUrl = pageUrl;
         }
+        NSString *referrer = [argmap sp_stringForKey:@"referrer" defaultValue:nil];
+        if (referrer) {
+            event.referrer = referrer;
+        }
 
         [event contexts:[RNUtilities mkSDJArray:contexts]];
         [trackerController track:event];
